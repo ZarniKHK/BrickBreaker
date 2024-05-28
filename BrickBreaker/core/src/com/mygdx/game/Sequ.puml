@@ -1,0 +1,11 @@
+@startuml
+Player -> Controller : input
+Controller -> GameState : update
+
+GameState -> Ball : render
+
+Ball -> GameState : render
+
+GameState -> Score : update
+
+@enduml

@@ -1,0 +1,52 @@
+@startuml
+
+class Player {
+   render()
+}
+
+class Ball{
+    width: int
+    height : int
+    dx : int
+    dy : int
+
+    bounce()
+}
+
+class Paddle{
+    width: int
+    height: int
+    dx: int
+    dy: int
+
+    render()
+}
+
+class Brick{
+    width: int
+    height: int
+    destroyed: boolean
+}
+
+class Score{
+    render()
+}
+
+class Image{
+    img: Texture
+}
+
+Image --> Paddle
+Image --> Ball
+Image --> Brick
+
+
+Player --> Paddle: control
+Paddle --> Ball : hit
+Ball -> Brick: hit
+Brick -> Score: when the ball hits the brick, change the score
+
+
+
+
+@enduml

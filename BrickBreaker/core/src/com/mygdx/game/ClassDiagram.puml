@@ -1,0 +1,57 @@
+@startuml
+class Player {
+   render()
+}
+
+class Position{
+  void update()
+  x : int
+  y : int
+}
+
+class Ball {
+   render()
+}
+
+class Paddle{
+   render()
+}
+
+class Velocity{
+  dx : int
+  dy : int
+  ang : radians
+}
+
+class Image {
+  path: Path
+  type: PngJPG
+  height: int
+  width: int
+  color: rgb
+}
+
+Ball --> Position
+Ball --> Velocity
+Ball --> Image
+
+Paddle --> Position
+Paddle --> Velocity
+Paddle --> Image
+
+Player -> Paddle
+note on link: Update the position of the paddle when the Player moves
+
+class Score {
+   void update()
+}
+
+class Brick {
+   render()
+}
+
+Brick --> Image
+Ball --> Score
+note on link: Update the Score when the Ball hit the Brick
+
+@enduml
